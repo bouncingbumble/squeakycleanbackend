@@ -5,6 +5,11 @@ exports.getServices = async (req, res, next) => {
     res.status(200).json(services)
 }
 
+exports.getService = async (req, res, next) => {
+    let service = await db.Service.findById(req.params.id).populate('reviews')
+    res.status(200).json(service)
+}
+
 exports.upvote = async (req, res, next) => {
     let serviceId = req.params.id
     try {

@@ -1,9 +1,9 @@
 var express = require('express'),
     router = express.Router(),
-    { getServices, upvote, downvote } = require('../apis/services'),
+    { getService, getServices, upvote, downvote } = require('../apis/services'),
     { createReview } = require('../apis/reviews')
 
-
+router.get('/services/:id', getService)
 router.get('/services', getServices)
 
 router.post('/services/:id/review', createReview)

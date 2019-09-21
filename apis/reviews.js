@@ -8,6 +8,7 @@ exports.createReview = async (req, res, next) => {
         let review = await db.Review.create({ body: req.body.review })
         foundService.reviews.push(review)
         await foundService.save()
+        console.log(review)
         res.status(201).json(review)
     } catch (err) {
         console.log(err)
